@@ -16,6 +16,7 @@ expand_grid(T1 = 1:M, T2 = 1:M) |>
     rowwise() |>
     mutate(v = max(c_across(everything()))) |>
     ungroup() |>
+    # TODO: use bigint
     summarize(sum(v)) |>
     pull()
   ) |>
